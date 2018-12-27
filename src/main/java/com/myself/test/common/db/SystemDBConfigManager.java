@@ -37,10 +37,8 @@ public class SystemDBConfigManager {
         mysqlXaDataSource.setPinGlobalTxToPhysicalConnection(true);
         mysqlXaDataSource.setPassword(dbConfig.getPassword());
         mysqlXaDataSource.setUser(dbConfig.getUsername());
-        mysqlXaDataSource.setPinGlobalTxToPhysicalConnection(true);
 
         AtomikosDataSourceBean xaDataSource = new AtomikosDataSourceBean();
-        xaDataSource.setXaDataSourceClassName("com.alibaba.druid.pool.xa.DruidXADataSource");
         xaDataSource.setXaDataSource(mysqlXaDataSource);
         xaDataSource.setUniqueResourceName(dbConfig.getName());
         xaDataSource.setXaProperties(this.build(dbConfig));

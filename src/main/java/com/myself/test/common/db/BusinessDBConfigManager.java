@@ -35,12 +35,11 @@ public class BusinessDBConfigManager {
         mysqlXaDataSource.setPinGlobalTxToPhysicalConnection(true);
         mysqlXaDataSource.setPassword(dbConfig.getPassword());
         mysqlXaDataSource.setUser(dbConfig.getUsername());
-        mysqlXaDataSource.setPinGlobalTxToPhysicalConnection(true);
+
         AtomikosDataSourceBean xaDataSource = new AtomikosDataSourceBean();
         xaDataSource.setXaDataSource(mysqlXaDataSource);
         xaDataSource.setUniqueResourceName(dbConfig.getName());
         xaDataSource.setXaProperties(this.build(dbConfig));
-
         return xaDataSource;
     }
 
